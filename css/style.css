@@ -12,7 +12,8 @@
   --black: #111111;
   --gray: #6b6b6b;
   --light-gray: #e8e4df;
-  --accent: #b89a7a;
+  --accent: #e06060;
+  --teal: #6dbfb3;
 }
 
 html {
@@ -34,7 +35,7 @@ nav {
   left: 0;
   width: 100%;
   background-color: var(--cream);
-  border-bottom: 1px solid var(--light-gray);
+  border-bottom: 3px solid var(--teal);
   z-index: 100;
   padding: 0 2rem;
 }
@@ -343,7 +344,7 @@ hr.divider {
 }
 
 .statement-body blockquote {
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--teal);
   padding-left: 1.5rem;
   margin: 2rem 0;
   font-family: 'Playfair Display', serif;
