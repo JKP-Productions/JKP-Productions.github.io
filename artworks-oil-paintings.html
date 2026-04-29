@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oil Paintings — JKP Productions</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="images/Logo.png" alt="JKP Productions" /></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Senior Project</a></li>
+        <li><a href="artworks.html" class="active">Artworks</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="statement.html">Statement</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <p class="section-label">Traditional Illustrations</p>
+      <h1>Oil Paintings</h1>
+    </div>
+
+    <section>
+      <div class="section-inner">
+        <div class="breadcrumb">
+          <a href="artworks.html">Artworks</a>
+          <span>›</span>
+          <a href="artworks-traditional.html">Traditional Illustrations</a>
+          <span>›</span>
+          <span>Oil Paintings</span>
+        </div>
+
+        <div class="grid grid-3">
+
+          <div class="artwork-card">
+            <img src="images/Collage.jpg" alt="Seafood Cuisine" />
+            <div class="artwork-info">
+              <p class="artwork-title">Seafood Cuisine</p>
+              <p class="artwork-meta">Oil paint &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; 12 × 9 in.</p>
+            </div>
+          </div>
+
+          <div class="artwork-card">
+            <img src="images/SelfPortrait.jpg" alt="Self Portrait" />
+            <div class="artwork-info">
+              <p class="artwork-title">Self Portrait</p>
+              <p class="artwork-meta">Oil paint &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; 9 × 12 in.</p>
+            </div>
+          </div>
+
+          <div class="artwork-card">
+            <img src="images/Sugar.jpg" alt="Suga/r" />
+            <div class="artwork-info">
+              <p class="artwork-title">Suga/r</p>
+              <p class="artwork-meta">Oil paint &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; 4 canvases; 12 × 12 in. overall</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 JKP Productions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

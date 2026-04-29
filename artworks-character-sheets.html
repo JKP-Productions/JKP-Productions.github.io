@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Character Sheets — JKP Productions</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="images/Logo.png" alt="JKP Productions" /></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Senior Project</a></li>
+        <li><a href="artworks.html" class="active">Artworks</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="statement.html">Statement</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <p class="section-label">Digital Illustrations</p>
+      <h1>Character Sheets</h1>
+    </div>
+
+    <section>
+      <div class="section-inner">
+        <div class="breadcrumb">
+          <a href="artworks.html">Artworks</a>
+          <span>›</span>
+          <a href="artworks-digital.html">Digital Illustrations</a>
+          <span>›</span>
+          <span>Character Sheets</span>
+        </div>
+
+        <div class="grid grid-3">
+
+          <!-- Moo-Moo -->
+          <div class="artwork-card">
+            <img src="images/Animal_In_Motion.jpg" alt="Moo-Moo" />
+            <div class="artwork-info">
+              <p class="artwork-title">Moo-Moo</p>
+              <p class="artwork-meta">Digital &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; 11 × 8 in.</p>
+            </div>
+          </div>
+
+          <!-- Snowy -->
+          <div class="artwork-card">
+            <img src="images/Creative_Creature.jpg" alt="Snowy" />
+            <div class="artwork-info">
+              <p class="artwork-title">Snowy</p>
+              <p class="artwork-meta">Digital &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; 11 × 8 in.</p>
+            </div>
+          </div>
+
+          <!-- Catasaurus Rex — slideshow -->
+          <div class="artwork-card">
+            <div class="slideshow-wrap" id="ss-catasaurus">
+              <div class="slideshow-track" id="ss-catasaurus-track">
+                <img src="images/CATASAURUS_REX_01.jpg" alt="Catasaurus Rex — 1" />
+                <img src="images/CATASAURUS_REX_02.jpg" alt="Catasaurus Rex — 2" />
+                <img src="images/CATASAURUS_REX_03.jpg" alt="Catasaurus Rex — 3" />
+              </div>
+              <div class="slideshow-controls">
+                <button class="ss-btn" onclick="ssChange('catasaurus',-1)">&#8592;</button>
+                <div class="ss-dots" id="ss-catasaurus-dots">
+                  <div class="ss-dot active" onclick="ssGo('catasaurus',0)"></div>
+                  <div class="ss-dot" onclick="ssGo('catasaurus',1)"></div>
+                  <div class="ss-dot" onclick="ssGo('catasaurus',2)"></div>
+                </div>
+                <button class="ss-btn" onclick="ssChange('catasaurus',1)">&#8594;</button>
+              </div>
+            </div>
+            <div class="artwork-info">
+              <p class="artwork-title">Catasaurus Rex</p>
+              <p class="artwork-meta">Digital &nbsp;·&nbsp; 2024 &nbsp;·&nbsp; 3 pages; 17 × 12.5 in. overall</p>
+            </div>
+          </div>
+
+          <!-- Natasha Ivanov -->
+          <div class="artwork-card">
+            <img src="images/Character1.jpg" alt="Natasha Ivanov" />
+            <div class="artwork-info">
+              <p class="artwork-title">Natasha Ivanov</p>
+              <p class="artwork-meta">Digital &nbsp;·&nbsp; 2024 &nbsp;·&nbsp; 11 × 8 in.</p>
+            </div>
+          </div>
+
+          <!-- Victor Gonzáles -->
+          <div class="artwork-card">
+            <img src="images/Character2.jpg" alt="Victor Gonzáles" />
+            <div class="artwork-info">
+              <p class="artwork-title">Victor Gonz&aacute;les</p>
+              <p class="artwork-meta">Digital &nbsp;·&nbsp; 2024 &nbsp;·&nbsp; 11 × 8 in.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 JKP Productions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    const ssState = {};
+
+    function ssInit(id, total) {
+      ssState[id] = { current: 0, total };
+    }
+
+    function ssRender(id) {
+      const { current } = ssState[id];
+      document.getElementById(`ss-${id}-track`).style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll(`#ss-${id}-dots .ss-dot`).forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function ssChange(id, dir) {
+      const s = ssState[id];
+      s.current = (s.current + dir + s.total) % s.total;
+      ssRender(id);
+    }
+
+    function ssGo(id, idx) {
+      ssState[id].current = idx;
+      ssRender(id);
+    }
+
+    ssInit('catasaurus', 3);
+  </script>
+</body>
+</html>

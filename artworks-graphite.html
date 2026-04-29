@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphite Drawings — JKP Productions</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="images/Logo.png" alt="JKP Productions" /></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Senior Project</a></li>
+        <li><a href="artworks.html" class="active">Artworks</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="statement.html">Statement</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <p class="section-label">Traditional Illustrations</p>
+      <h1>Graphite Drawings</h1>
+    </div>
+
+    <section>
+      <div class="section-inner">
+        <div class="breadcrumb">
+          <a href="artworks.html">Artworks</a>
+          <span>›</span>
+          <a href="artworks-traditional.html">Traditional Illustrations</a>
+          <span>›</span>
+          <span>Graphite Drawings</span>
+        </div>
+
+        <div class="grid grid-3">
+
+          <div class="artwork-card">
+            <img src="images/Eye.jpeg" alt="Eye" />
+            <div class="artwork-info">
+              <p class="artwork-title">Eye</p>
+              <p class="artwork-meta">Graphite pencil &nbsp;·&nbsp; 2020 &nbsp;·&nbsp; 14 × 11 in.</p>
+            </div>
+          </div>
+
+          <div class="artwork-card">
+            <img src="images/Portrait.jpeg" alt="Portrait" />
+            <div class="artwork-info">
+              <p class="artwork-title">Portrait</p>
+              <p class="artwork-meta">Graphite pencil &nbsp;·&nbsp; 2020 &nbsp;·&nbsp; 11 × 14 in.</p>
+            </div>
+          </div>
+
+          <div class="artwork-card">
+            <img src="images/Shepherd.jpeg" alt="Shepherd" />
+            <div class="artwork-info">
+              <p class="artwork-title">Shepherd</p>
+              <p class="artwork-meta">Graphite pencil &nbsp;·&nbsp; 2017 &nbsp;·&nbsp; 14 × 11 in.</p>
+            </div>
+          </div>
+
+          <div class="artwork-card">
+            <img src="images/Sunny.jpg" alt="Sunny" />
+            <div class="artwork-info">
+              <p class="artwork-title">Sunny</p>
+              <p class="artwork-meta">Graphite pencil &nbsp;·&nbsp; 2019 &nbsp;·&nbsp; 12 × 12 in.</p>
+            </div>
+          </div>
+
+          <div class="artwork-card">
+            <img src="images/TreeFrog.jpeg" alt="TreeFrog" />
+            <div class="artwork-info">
+              <p class="artwork-title">TreeFrog</p>
+              <p class="artwork-meta">Graphite pencil &nbsp;·&nbsp; 2020 &nbsp;·&nbsp; 14 × 11 in.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 JKP Productions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
