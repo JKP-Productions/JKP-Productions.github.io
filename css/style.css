@@ -46,7 +46,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 72px;
 }
 
 .nav-logo {
@@ -56,7 +56,7 @@ nav {
 }
 
 .nav-logo img {
-  height: 36px;
+  height: 48px;
   width: auto;
   display: block;
 }
@@ -103,12 +103,12 @@ nav {
 
 /* ── Page wrapper ── */
 main {
-  padding-top: 64px;
+  padding-top: 72px;
 }
 
 /* ── Hero ── */
 .hero {
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - 72px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -453,7 +453,7 @@ footer {
   .nav-links {
     display: none;
     position: absolute;
-    top: 64px;
+    top: 72px;
     left: 0;
     width: 100%;
     background: var(--cream);
