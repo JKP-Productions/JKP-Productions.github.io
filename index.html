@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JKP Productions</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">JKP Productions</a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="portfolio.html">Senior Project</a></li>
+        <li><a href="artworks.html">Artworks</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="statement.html">Statement</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="hero">
+      <p class="section-label">Welcome</p>
+      <h1>Art that speaks<br><em>without words.</em></h1>
+      <p>A portfolio of original works by JKP Productions — exploring form, feeling, and the space between.</p>
+      <div class="hero-links">
+        <a href="portfolio.html" class="btn btn-dark">Senior Project</a>
+        <a href="artworks.html" class="btn btn-outline">View Artworks</a>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <section style="background: var(--white);">
+      <div class="section-inner">
+        <p class="section-label">Featured Work</p>
+        <h2 class="section-title">Selected Pieces</h2>
+        <div class="grid grid-3" style="margin-top: 2.5rem;">
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Untitled I</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Untitled II</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Untitled III</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 2.5rem; text-align: center;">
+          <a href="artworks.html" class="btn btn-outline">See All Works</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section>
+      <div class="section-inner">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+          <div>
+            <p class="section-label">About the Artist</p>
+            <h2 class="section-title">JKP Productions</h2>
+            <p class="section-body">A brief glimpse into the artist's world — their influences, process, and the ideas that drive their work.</p>
+            <div style="margin-top: 2rem;">
+              <a href="about.html" class="btn btn-outline">Read Bio</a>
+            </div>
+          </div>
+          <div class="about-img-placeholder" style="aspect-ratio: 1/1;">Artist photo coming soon</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section style="background: var(--black); color: var(--white); text-align: center;">
+      <div class="section-inner">
+        <p class="section-label" style="color: var(--accent);">Artist Statement</p>
+        <blockquote style="border-left: none; padding: 0; color: var(--white); margin: 1rem auto; max-width: 640px; font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 3vw, 1.7rem); font-style: italic; line-height: 1.5;">
+          "Art is not what you see, but what you make others see."
+        </blockquote>
+        <div style="margin-top: 2rem;">
+          <a href="statement.html" class="btn" style="border-color: var(--white); color: var(--white);" onmouseover="this.style.background='var(--white)';this.style.color='var(--black)'" onmouseout="this.style.background='transparent';this.style.color='var(--white)'">Read Full Statement</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 JKP Productions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

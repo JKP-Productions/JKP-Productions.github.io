@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — JKP Productions</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">JKP Productions</a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Senior Project</a></li>
+        <li><a href="artworks.html">Artworks</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="statement.html">Statement</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="page-hero">
+      <p class="section-label">The Artist</p>
+      <h1>About</h1>
+    </div>
+
+    <section>
+      <div class="section-inner">
+        <div class="about-grid">
+
+          <div class="about-img-placeholder">Artist photo coming soon</div>
+
+          <div class="about-text">
+            <h2>JKP Productions</h2>
+
+            <p>
+              This is where the artist bio will go. A few paragraphs about who you are, where you're from, and what drives your creative practice.
+            </p>
+
+            <p>
+              Share your background — your school, your artistic influences, the mediums you work in, and what draws you to them.
+            </p>
+
+            <p>
+              You can also talk about your goals as an artist, what you hope viewers take away from your work, or any exhibitions, recognitions, or experiences that have shaped your journey.
+            </p>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="statement.html" class="btn btn-dark">Artist Statement</a>
+              <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section style="background: var(--white);">
+      <div class="section-inner" style="text-align: center;">
+        <p class="section-label">Highlights</p>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+          <div>
+            <p style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--accent);">—</p>
+            <p style="font-weight: 500; margin-top: 0.5rem;">School / Program</p>
+            <p style="color: var(--gray); font-size: 0.875rem; font-weight: 300; margin-top: 0.25rem;">Your institution</p>
+          </div>
+          <div>
+            <p style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--accent);">—</p>
+            <p style="font-weight: 500; margin-top: 0.5rem;">Medium</p>
+            <p style="color: var(--gray); font-size: 0.875rem; font-weight: 300; margin-top: 0.25rem;">Primary materials / techniques</p>
+          </div>
+          <div>
+            <p style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--accent);">—</p>
+            <p style="font-weight: 500; margin-top: 0.5rem;">Focus</p>
+            <p style="color: var(--gray); font-size: 0.875rem; font-weight: 300; margin-top: 0.25rem;">Themes or subjects</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 JKP Productions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

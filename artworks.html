@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artworks — JKP Productions</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">JKP Productions</a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Senior Project</a></li>
+        <li><a href="artworks.html" class="active">Artworks</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="statement.html">Statement</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="page-hero">
+      <p class="section-label">Gallery</p>
+      <h1>Additional Artworks</h1>
+      <p>Works beyond the senior project — experiments, studies, and personal explorations.</p>
+    </div>
+
+    <section>
+      <div class="section-inner">
+
+        <!-- Category: Paintings (example — update labels to match actual categories) -->
+        <p class="section-label">Category One</p>
+        <div class="grid grid-3" style="margin-top: 1.5rem; margin-bottom: 4rem;">
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Artwork Title</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Artwork Title</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Artwork Title</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider" style="margin-bottom: 3rem;" />
+
+        <!-- Category: Drawings -->
+        <p class="section-label">Category Two</p>
+        <div class="grid grid-3" style="margin-top: 1.5rem; margin-bottom: 4rem;">
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Artwork Title</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Artwork Title</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Artwork Title</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider" style="margin-bottom: 3rem;" />
+
+        <!-- Category: Mixed Media -->
+        <p class="section-label">Category Three</p>
+        <div class="grid grid-3" style="margin-top: 1.5rem;">
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Artwork Title</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Artwork Title</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img-placeholder">Image coming soon</div>
+            <div class="card-body">
+              <p class="card-title">Artwork Title</p>
+              <p class="card-desc">Medium · Year</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 JKP Productions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

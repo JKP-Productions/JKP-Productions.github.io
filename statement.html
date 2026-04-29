@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artist Statement — JKP Productions</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">JKP Productions</a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Senior Project</a></li>
+        <li><a href="artworks.html">Artworks</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="statement.html" class="active">Statement</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="page-hero">
+      <p class="section-label">In My Own Words</p>
+      <h1>Artist Statement</h1>
+    </div>
+
+    <section>
+      <div class="section-inner">
+        <div class="statement-body">
+
+          <blockquote>
+            "A meaningful quote from the artist — something that captures the essence of your practice."
+          </blockquote>
+
+          <p>
+            This is where your artist statement will go. Write in your own voice about what drives your work, the questions you're asking, and the ideas you return to again and again.
+          </p>
+
+          <p>
+            Describe the themes, emotions, or experiences that inform your practice. What are you exploring? What do you want the viewer to feel, think, or question?
+          </p>
+
+          <p>
+            You might also discuss your process — how you approach a new piece, how you choose your materials, and how your work has evolved over time.
+          </p>
+
+          <p>
+            Close with what you hope your work contributes — to art, to conversation, to the people who encounter it.
+          </p>
+
+          <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--light-gray); display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="portfolio.html" class="btn btn-dark">View Senior Project</a>
+            <a href="about.html" class="btn btn-outline">About the Artist</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 JKP Productions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
