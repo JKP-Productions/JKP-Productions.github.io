@@ -5,6 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Senior Project — JKP Productions</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Comic Reader ── */
+    .comic-reader {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .comic-canvas-wrap {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    #comic-canvas {
+      max-width: 100%;
+      max-height: 78vh;
+      display: block;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    .comic-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comic-btn:hover:not(:disabled) {
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+
+    .comic-btn:disabled {
+      opacity: 0.25;
+      cursor: default;
+    }
+
+    .comic-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .comic-page-count {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .comic-loading {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.875rem;
+      padding: 4rem 0;
+    }
+
+    @media (max-width: 600px) {
+      .comic-reader { padding: 1rem 0.5rem; }
+      .comic-btn { width: 36px; height: 36px; font-size: 1rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -29,83 +109,29 @@
 
     <div class="page-hero">
       <p class="section-label">Senior Project</p>
-      <h1>The Collection</h1>
-      <p>A curated body of work representing my senior year of study.</p>
+      <h1>Nosophobia</h1>
+      <p>A science fiction action comic — fear of disease, told in ink.</p>
     </div>
 
     <section>
       <div class="section-inner">
 
-        <p style="color: var(--gray); font-weight: 300; max-width: 680px; margin-bottom: 3rem;">
-          This series represents the culmination of my artistic development — a focused exploration of [theme/concept]. Each piece reflects a distinct stage of the creative process, from initial concept to final execution.
-        </p>
-
-        <!-- Feature piece -->
-        <div style="margin-bottom: 4rem;">
-          <div class="card-img-placeholder" style="aspect-ratio: 16/9; font-size: 0.9rem;">Feature piece — image coming soon</div>
-          <div style="margin-top: 1.25rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-            <div>
-              <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: 0.5rem;">Title of Feature Work</h2>
-              <p style="color: var(--gray); font-size: 0.9rem;">Medium &nbsp;·&nbsp; Dimensions &nbsp;·&nbsp; Year</p>
-            </div>
-            <div>
-              <p style="color: var(--gray); font-weight: 300; font-size: 0.95rem;">A short description of this piece — what inspired it, what it explores, and how it fits within the larger body of work.</p>
-            </div>
-          </div>
+        <div style="max-width: 720px; margin: 0 auto 3rem;">
+          <p class="section-label">About the Project</p>
+          <p style="color: var(--gray); font-weight: 300; font-size: 1rem; line-height: 1.85;">
+            <em>Nosophobia</em> — meaning fear of disease — is a comic that explores themes of manipulation, scheming, and control through science fiction and action storytelling. The comic follows a spy agent, Natasha Ivanov, and a biochemist, Victor Gonzales, as they investigate a bioengineered fungal disease based on a real disease called Cordyceps, or zombie ant disease. First created in Narrative Illustration, Spring 2025.
+          </p>
         </div>
 
-        <hr class="divider" style="margin-bottom: 3rem;" />
-
-        <!-- Series grid -->
-        <p class="section-label">The Series</p>
-        <div class="grid grid-3" style="margin-top: 1.5rem;">
-          <div class="card">
-            <div class="card-img-placeholder">Image coming soon</div>
-            <div class="card-body">
-              <p class="card-title">Piece 01</p>
-              <p class="card-desc">Medium · Year</p>
-              <p style="font-size: 0.82rem; color: var(--gray); margin-top: 0.5rem; font-weight: 300;">Brief description of this work and its place in the series.</p>
-            </div>
+        <!-- Comic Reader -->
+        <div class="comic-reader">
+          <div class="comic-canvas-wrap">
+            <button class="comic-btn" id="btn-prev" onclick="changePage(-1)" disabled aria-label="Previous page">&#8592;</button>
+            <canvas id="comic-canvas"></canvas>
+            <button class="comic-btn" id="btn-next" onclick="changePage(1)" aria-label="Next page">&#8594;</button>
           </div>
-          <div class="card">
-            <div class="card-img-placeholder">Image coming soon</div>
-            <div class="card-body">
-              <p class="card-title">Piece 02</p>
-              <p class="card-desc">Medium · Year</p>
-              <p style="font-size: 0.82rem; color: var(--gray); margin-top: 0.5rem; font-weight: 300;">Brief description of this work and its place in the series.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img-placeholder">Image coming soon</div>
-            <div class="card-body">
-              <p class="card-title">Piece 03</p>
-              <p class="card-desc">Medium · Year</p>
-              <p style="font-size: 0.82rem; color: var(--gray); margin-top: 0.5rem; font-weight: 300;">Brief description of this work and its place in the series.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img-placeholder">Image coming soon</div>
-            <div class="card-body">
-              <p class="card-title">Piece 04</p>
-              <p class="card-desc">Medium · Year</p>
-              <p style="font-size: 0.82rem; color: var(--gray); margin-top: 0.5rem; font-weight: 300;">Brief description of this work and its place in the series.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img-placeholder">Image coming soon</div>
-            <div class="card-body">
-              <p class="card-title">Piece 05</p>
-              <p class="card-desc">Medium · Year</p>
-              <p style="font-size: 0.82rem; color: var(--gray); margin-top: 0.5rem; font-weight: 300;">Brief description of this work and its place in the series.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-img-placeholder">Image coming soon</div>
-            <div class="card-body">
-              <p class="card-title">Piece 06</p>
-              <p class="card-desc">Medium · Year</p>
-              <p style="font-size: 0.82rem; color: var(--gray); margin-top: 0.5rem; font-weight: 300;">Brief description of this work and its place in the series.</p>
-            </div>
+          <div class="comic-meta">
+            <span class="comic-page-count" id="page-count">Loading…</span>
           </div>
         </div>
 
@@ -118,10 +144,70 @@
     <p>&copy; 2025 JKP Productions. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('open');
     }
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    let pdfDoc = null;
+    let currentPage = 1;
+    let totalPages = 0;
+    let rendering = false;
+
+    const canvas = document.getElementById('comic-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function renderPage(num) {
+      if (rendering) return;
+      rendering = true;
+
+      pdfDoc.getPage(num).then(page => {
+        const container = canvas.parentElement;
+        const maxWidth = container.clientWidth - 96;
+        const maxHeight = window.innerHeight * 0.78;
+
+        const viewport = page.getViewport({ scale: 1 });
+        const scaleW = maxWidth / viewport.width;
+        const scaleH = maxHeight / viewport.height;
+        const scale = Math.min(scaleW, scaleH);
+        const scaled = page.getViewport({ scale });
+
+        canvas.width = scaled.width;
+        canvas.height = scaled.height;
+
+        page.render({ canvasContext: ctx, viewport: scaled }).promise.then(() => {
+          rendering = false;
+          document.getElementById('page-count').textContent =
+            `Page ${num} of ${totalPages}`;
+          document.getElementById('btn-prev').disabled = num <= 1;
+          document.getElementById('btn-next').disabled = num >= totalPages;
+        });
+      });
+    }
+
+    function changePage(dir) {
+      const next = currentPage + dir;
+      if (next < 1 || next > totalPages) return;
+      currentPage = next;
+      renderPage(currentPage);
+    }
+
+    pdfjsLib.getDocument('images/NosophobiaComic.pdf').promise.then(pdf => {
+      pdfDoc = pdf;
+      totalPages = pdf.numPages;
+      renderPage(currentPage);
+    }).catch(() => {
+      document.getElementById('page-count').textContent = 'Could not load comic.';
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') changePage(-1);
+      if (e.key === 'ArrowRight') changePage(1);
+    });
   </script>
 
 </body>
