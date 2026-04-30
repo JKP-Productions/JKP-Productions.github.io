@@ -158,27 +158,27 @@ main {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid var(--black);
-  transition: background 0.2s, color 0.2s;
+  border: 1px solid var(--teal);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .btn-dark {
-  background: var(--black);
+  background: var(--teal);
   color: var(--white);
 }
 
 .btn-dark:hover {
-  background: var(--gray);
-  border-color: var(--gray);
+  background: #55a99c;
+  border-color: #55a99c;
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--black);
+  color: var(--teal);
 }
 
 .btn-outline:hover {
-  background: var(--black);
+  background: var(--teal);
   color: var(--white);
 }
 
@@ -196,7 +196,7 @@ section {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--teal);
   margin-bottom: 0.75rem;
 }
 
