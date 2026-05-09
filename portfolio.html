@@ -368,7 +368,7 @@
     }
 
     overlay.addEventListener('click', e => {
-      if (e.target === overlay && !isTouchDevice) closeOverlay();
+      if (!isTouchDevice && !e.target.closest('button, canvas')) closeOverlay();
     });
 
     pdfjsLib.getDocument('images/NosophobiaComic.pdf').promise.then(pdf => {
