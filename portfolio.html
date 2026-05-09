@@ -154,6 +154,22 @@
       gap: 1.5rem;
       flex-shrink: 0;
     }
+
+    /* Auto-hide controls on touch devices */
+    #overlay-close,
+    #overlay-prev,
+    #overlay-next,
+    #overlay-meta {
+      transition: opacity 0.35s;
+    }
+
+    #comic-overlay.controls-hidden #overlay-close,
+    #comic-overlay.controls-hidden #overlay-prev,
+    #comic-overlay.controls-hidden #overlay-next,
+    #comic-overlay.controls-hidden #overlay-meta {
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -323,17 +339,31 @@
       currentPage = next;
       renderPage(currentPage);
       renderOverlayPage(currentPage);
+      showControls();
+    }
+
+    // Auto-hide controls on touch devices only
+    const isTouchDevice = window.matchMedia('(hover: none)').matches;
+    let controlsTimer = null;
+
+    function showControls() {
+      overlay.classList.remove('controls-hidden');
+      if (!isTouchDevice) return;
+      clearTimeout(controlsTimer);
+      controlsTimer = setTimeout(() => overlay.classList.add('controls-hidden'), 3000);
     }
 
     function openOverlay() {
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
       renderOverlayPage(currentPage);
+      showControls();
     }
 
     function closeOverlay() {
-      overlay.classList.remove('active');
+      overlay.classList.remove('active', 'controls-hidden');
       document.body.style.overflow = '';
+      clearTimeout(controlsTimer);
     }
 
     pdfjsLib.getDocument('images/NosophobiaComic.pdf').promise.then(pdf => {
@@ -355,13 +385,14 @@
       }
     });
 
-    // Swipe to navigate in overlay
+    // Swipe to navigate + tap to show controls in overlay
     let touchStartX = 0;
     let touchStartY = 0;
 
     overlay.addEventListener('touchstart', e => {
       touchStartX = e.touches[0].clientX;
       touchStartY = e.touches[0].clientY;
+      showControls();
     }, { passive: true });
 
     overlay.addEventListener('touchend', e => {
