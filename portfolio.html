@@ -174,28 +174,27 @@
         const scaleW = maxWidth / viewport.width;
         const scaleH = maxHeight / viewport.height;
         const scale = Math.min(scaleW, scaleH);
-        const dpr = window.devicePixelRatio || 1;
         const scaled = page.getViewport({ scale });
-        const hires = page.getViewport({ scale: scale * dpr });
 
-        canvas.width = hires.width;
-        canvas.height = hires.height;
-        canvas.style.width = scaled.width + 'px';
-        canvas.style.height = scaled.height + 'px';
+        canvas.width = scaled.width;
+        canvas.height = scaled.height;
+        canvas.style.width = '';
+        canvas.style.height = '';
 
-        page.render({ canvasContext: ctx, viewport: hires }).promise.then(() => {
+        page.render({ canvasContext: ctx, viewport: scaled }).promise.then(() => {
           rendering = false;
           document.getElementById('page-count').textContent =
             `Page ${num} of ${totalPages}`;
           document.getElementById('btn-prev').disabled = num <= 1;
-          document.getElementById('btn-next').disabled = num >= totalPages;
+          document.getElementById('btn-next').disabled = false;
         });
       });
     }
 
     function changePage(dir) {
-      const next = currentPage + dir;
-      if (next < 1 || next > totalPages) return;
+      let next = currentPage + dir;
+      if (next < 1) return;
+      if (next > totalPages) next = 1;
       currentPage = next;
       renderPage(currentPage);
     }
