@@ -212,7 +212,9 @@
         <!-- Comic Reader -->
         <div class="comic-reader">
           <div class="comic-canvas-wrap">
+            <button class="comic-btn" id="btn-prev" onclick="changePage(-1)" disabled aria-label="Previous page">&#8592;</button>
             <canvas id="comic-canvas"></canvas>
+            <button class="comic-btn" id="btn-next" onclick="changePage(1)" aria-label="Next page">&#8594;</button>
           </div>
           <div class="comic-meta">
             <span class="comic-page-count" id="page-count">Loading…</span>
@@ -290,6 +292,8 @@
         page.render({ canvasContext: ctx, viewport: hires }).promise.then(() => {
           rendering = false;
           document.getElementById('page-count').textContent = `Page ${num} of ${totalPages}`;
+          document.getElementById('btn-prev').disabled = num <= 1;
+          document.getElementById('btn-next').disabled = false;
         });
       });
     }
@@ -319,6 +323,14 @@
           document.getElementById('overlay-next').disabled = false;
         });
       });
+    }
+
+    function changePage(dir) {
+      let next = currentPage + dir;
+      if (next < 1) return;
+      if (next > totalPages) next = 1;
+      currentPage = next;
+      renderPage(currentPage);
     }
 
     function overlayChangePage(dir) {
@@ -368,6 +380,9 @@
         if (e.key === 'ArrowLeft') overlayChangePage(-1);
         if (e.key === 'ArrowRight') overlayChangePage(1);
         if (e.key === 'Escape') closeOverlay();
+      } else {
+        if (e.key === 'ArrowLeft') changePage(-1);
+        if (e.key === 'ArrowRight') changePage(1);
       }
     });
 
