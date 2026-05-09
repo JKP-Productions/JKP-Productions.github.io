@@ -350,7 +350,7 @@
       overlay.classList.remove('controls-hidden');
       if (!isTouchDevice) return;
       clearTimeout(controlsTimer);
-      controlsTimer = setTimeout(() => overlay.classList.add('controls-hidden'), 3000);
+      controlsTimer = setTimeout(() => overlay.classList.add('controls-hidden'), 1000);
     }
 
     function openOverlay() {
