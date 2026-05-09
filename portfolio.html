@@ -174,12 +174,16 @@
         const scaleW = maxWidth / viewport.width;
         const scaleH = maxHeight / viewport.height;
         const scale = Math.min(scaleW, scaleH);
+        const dpr = window.devicePixelRatio || 1;
         const scaled = page.getViewport({ scale });
+        const hires = page.getViewport({ scale: scale * dpr });
 
-        canvas.width = scaled.width;
-        canvas.height = scaled.height;
+        canvas.width = hires.width;
+        canvas.height = hires.height;
+        canvas.style.width = scaled.width + 'px';
+        canvas.style.height = scaled.height + 'px';
 
-        page.render({ canvasContext: ctx, viewport: scaled }).promise.then(() => {
+        page.render({ canvasContext: ctx, viewport: hires }).promise.then(() => {
           rendering = false;
           document.getElementById('page-count').textContent =
             `Page ${num} of ${totalPages}`;
