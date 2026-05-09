@@ -118,11 +118,13 @@
     #overlay-close:hover { opacity: 1; }
 
     #overlay-canvas-wrap {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
       width: 100%;
+      flex: 1;
+      min-height: 0;
     }
 
     #overlay-canvas {
@@ -132,10 +134,25 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     }
 
+    /* Float nav buttons over the canvas so they're visible on mobile */
+    #overlay-prev,
+    #overlay-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      background: rgba(0,0,0,0.45);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    #overlay-prev { left: 0.5rem; }
+    #overlay-next { right: 0.5rem; }
+
     #overlay-meta {
       display: flex;
       align-items: center;
       gap: 1.5rem;
+      flex-shrink: 0;
     }
   </style>
 </head>
@@ -337,6 +354,23 @@
         if (e.key === 'ArrowRight') changePage(1);
       }
     });
+
+    // Swipe to navigate in overlay
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    overlay.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    overlay.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        overlayChangePage(dx < 0 ? 1 : -1);
+      }
+    }, { passive: true });
   </script>
 
 </body>
