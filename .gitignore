@@ -1,3 +1,4 @@
 _content/
 _uploads/*
 !_uploads/.gitkeep
+_notes.md
