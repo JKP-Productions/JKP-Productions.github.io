@@ -228,7 +228,7 @@
         </div>
 
         <!-- Fullscreen overlay -->
-        <div id="comic-overlay" onclick="if(event.target===this&&!isTouchDevice)closeOverlay()">
+        <div id="comic-overlay">
           <button id="overlay-close" onclick="closeOverlay()" aria-label="Close">&times;</button>
           <div id="overlay-canvas-wrap">
             <button class="comic-btn" id="overlay-prev" onclick="overlayChangePage(-1)" disabled aria-label="Previous page">&#8592;</button>
@@ -366,6 +366,10 @@
       document.body.style.overflow = '';
       clearTimeout(controlsTimer);
     }
+
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay && !isTouchDevice) closeOverlay();
+    });
 
     pdfjsLib.getDocument('images/NosophobiaComic.pdf').promise.then(pdf => {
       pdfDoc = pdf;
